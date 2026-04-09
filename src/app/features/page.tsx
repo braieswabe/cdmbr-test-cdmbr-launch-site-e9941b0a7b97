@@ -1,4 +1,4 @@
-import { CTABanner, FeatureCard, Hero, PageHeader, SectionHeading } from "@/components";
+import { CTABanner, FeatureCard, Hero, SectionHeading } from "@/components";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

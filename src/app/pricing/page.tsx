@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { ArrowRight, CheckCircle2, Clock3, HelpCircle, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Clock3, ShieldCheck, Sparkles, Star } from "lucide-react";
 import { CTABanner, ComparisonTable, FAQAccordion, PageHeader, PricingTable, SectionHeading } from "@/components";
 
 const monthlyPlans = [
@@ -101,13 +101,17 @@ const annualPlans = [
   },
 ];
 
-const comparisonColumns = ["Launch", "Growth", "Scale"];
+const comparisonColumns = [
+  { key: "launch", label: "Launch" },
+  { key: "growth", label: "Growth", highlighted: true },
+  { key: "scale", label: "Scale" },
+];
 const comparisonRows = [
-  { label: "Core pages", values: ["Up to 5", "Up to 10", "Custom"] },
-  { label: "Strategy workshop", values: ["—", "Included", "Included"] },
-  { label: "Copy guidance", values: ["Basic", "Included", "Included"] },
-  { label: "Revision rounds", values: ["1", "2", "3+"] },
-  { label: "Launch support", values: ["Standard", "Priority", "Dedicated"] },
+  { feature: "Core pages", values: { launch: "Up to 5", growth: "Up to 10", scale: "Custom" } },
+  { feature: "Strategy workshop", values: { launch: "—", growth: "Included", scale: "Included" } },
+  { feature: "Copy guidance", values: { launch: "Basic", growth: "Included", scale: "Included" } },
+  { feature: "Revision rounds", values: { launch: "1", growth: "2", scale: "3+" } },
+  { feature: "Launch support", values: { launch: "Standard", growth: "Priority", scale: "Dedicated" } },
 ];
 
 const faqItems = [

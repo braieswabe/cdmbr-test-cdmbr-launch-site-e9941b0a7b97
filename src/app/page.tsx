@@ -25,18 +25,17 @@ import {
   LogoCloud,
   SectionHeading,
   ServiceCard,
-  SocialProofStrip,
   StatsRow,
   TestimonialCard,
 } from "@/components";
 
 const trustedBy = [
-  "Northstar Health",
-  "Summit Financial",
-  "Brightline Retail",
-  "Aster Labs",
-  "CivicWorks",
-  "Harbor & Co.",
+  { name: "Northstar Health" },
+  { name: "Summit Financial" },
+  { name: "Brightline Retail" },
+  { name: "Aster Labs" },
+  { name: "CivicWorks" },
+  { name: "Harbor & Co." },
 ];
 
 const benefits = [

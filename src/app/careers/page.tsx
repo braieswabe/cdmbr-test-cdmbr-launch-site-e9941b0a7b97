@@ -208,10 +208,10 @@ export default function CareersPage() {
         <div className="mx-auto max-w-7xl px-6 sm:px-8 lg:px-10">
           <SocialProofStrip
             items={[
-              "Average candidate response within 5 business days",
-              "Remote-friendly team with flexible scheduling",
-              "Structured onboarding for every new hire",
-              "Growth plans reviewed twice per year",
+              { label: "Candidate response", value: "5 business days", icon: "shield" },
+              { label: "Work style", value: "Remote-friendly", icon: "users" },
+              { label: "Onboarding", value: "Structured", icon: "star" },
+              { label: "Growth reviews", value: "Twice per year", icon: "growth" },
             ]}
           />
         </div>

@@ -1,9 +1,9 @@
 import { cn } from "@/lib/cn";
 
 export type TestimonialCardProps = {
-  icon: string;
+  icon: React.ReactNode;
   title: string;
-  description: string;
+  description: React.ReactNode;
   className?: string;
 };
 

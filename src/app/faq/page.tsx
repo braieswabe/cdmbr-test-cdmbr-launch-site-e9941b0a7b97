@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
-import { Breadcrumbs, Button, PageHeader, SectionHeading } from "@/components";
+import { Breadcrumbs, PageHeader, SectionHeading } from "@/components";
 
 const faqItems = [
   {

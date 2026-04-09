@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Camera, ImageIcon, LayoutGrid, PlayCircle, Sparkles } from "lucide-react";
-import { CTABanner, GalleryGrid, ModalLightbox, PageHeader, SectionHeading } from "@/components";
+import { CTABanner, GalleryGrid, PageHeader, SectionHeading } from "@/components";
 
 export const metadata: Metadata = {
   title: "Gallery | Professional Website",
@@ -11,40 +12,52 @@ export const metadata: Metadata = {
 
 const galleryItems = [
   {
+    id: "brand-launch",
     title: "Brand launch campaign",
     description: "A polished visual system for a new product launch, including hero imagery, social crops, and landing page assets.",
-    image: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80",
-    caption: "Campaign direction, studio lighting, and conversion-focused composition.",
+    imageSrc: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Brand launch campaign showcasing hero imagery and landing page assets",
+    category: "Branding",
   },
   {
+    id: "executive-portraits",
     title: "Executive portrait series",
     description: "Consistent headshots and team portraits designed for about pages, press kits, and LinkedIn profiles.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
-    caption: "Natural expressions, clean backgrounds, and brand-aligned styling.",
+    imageSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Professional executive portrait with clean background",
+    category: "Portraits",
   },
   {
+    id: "product-detail",
     title: "Product detail shots",
     description: "Close-up photography that highlights materials, craftsmanship, and the features customers care about most.",
-    image: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
-    caption: "Texture, finish, and form captured for ecommerce and editorial use.",
+    imageSrc: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Close-up product photography highlighting craftsmanship and detail",
+    category: "Product",
   },
   {
+    id: "event-coverage",
     title: "Client event coverage",
     description: "Event imagery that captures energy, attendance, and the moments that matter for post-event marketing.",
-    image: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
-    caption: "Candid storytelling with a clear sense of scale and atmosphere.",
+    imageSrc: "https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Client event coverage showing atmosphere and engagement",
+    category: "Events",
   },
   {
+    id: "workspace-culture",
     title: "Workspace and culture",
     description: "Authentic office photography that helps candidates and customers understand the team behind the brand.",
-    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
-    caption: "Real people, real spaces, and a welcoming first impression.",
+    imageSrc: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Modern workspace showing authentic team culture",
+    category: "Culture",
   },
   {
+    id: "hero-concepts",
     title: "Website hero concepts",
     description: "High-impact visuals built to support homepage messaging, service pages, and campaign landing pages.",
-    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
-    caption: "Bold framing and strong contrast for immediate visual hierarchy.",
+    imageSrc: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80",
+    imageAlt: "Bold website hero concept with strong visual hierarchy",
+    category: "Web",
   },
 ];
 
@@ -137,8 +150,7 @@ export default function GalleryPage() {
                 <span className="text-sm font-medium uppercase tracking-wide">caption_strip</span>
               </div>
               <h3 className="mt-4 text-xl font-semibold text-black">{item.title}</h3>
-              <p className="mt-3 text-sm leading-6 text-black/70">{item.caption}</p>
-              <p className="mt-4 text-sm leading-6 text-black/60">{item.description}</p>
+              <p className="mt-3 text-sm leading-6 text-black/70">{item.description}</p>
             </div>
           ))}
         </div>
@@ -152,24 +164,17 @@ export default function GalleryPage() {
             description="Use the lightbox experience to inspect composition, detail, and presentation without losing context."
           />
           <div className="mt-8 rounded-3xl border border-black/5 bg-white p-6 shadow-sm">
-            <ModalLightbox
-              open={false}
-              title="Gallery preview"
-              description="Open any image to inspect the details more closely."
-              onClose={() => {}}
-            >
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {galleryItems.slice(0, 6).map((item) => (
-                  <div key={item.title} className="overflow-hidden rounded-2xl border border-black/5 bg-black/[0.02]">
-                    <img src={item.image} alt={item.title} className="h-56 w-full object-cover" />
-                    <div className="p-4">
-                      <h3 className="font-semibold text-black">{item.title}</h3>
-                      <p className="mt-1 text-sm text-black/65">{item.caption}</p>
-                    </div>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {galleryItems.slice(0, 6).map((item) => (
+                <div key={item.title} className="overflow-hidden rounded-2xl border border-black/5 bg-black/[0.02]">
+                  <Image src={item.imageSrc} alt={item.imageAlt} width={400} height={224} className="h-56 w-full object-cover" />
+                  <div className="p-4">
+                    <h3 className="font-semibold text-black">{item.title}</h3>
+                    <p className="mt-1 text-sm text-black/65">{item.description}</p>
                   </div>
-                ))}
-              </div>
-            </ModalLightbox>
+                </div>
+              ))}
+            </div>
             <p className="mt-4 text-sm text-black/60">
               Tip: pair this gallery with a strong <Link href="/portfolio" className="font-medium text-[var(--primary)] underline-offset-4 hover:underline">portfolio page</Link> to show both breadth and depth.
             </p>

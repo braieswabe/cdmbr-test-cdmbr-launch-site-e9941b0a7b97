@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 
 import Link from "next/link";
 import { ArrowRight, BarChart3, BriefcaseBusiness, Building2, CheckCircle2, Compass, Globe2, Layers3, ShieldCheck, Sparkles, Target, Users2 } from "lucide-react";
-import { CTABanner, FeatureCard, PageHeader, ProcessTimeline, SectionHeading, ServiceCard } from "@/components";
+import { CTABanner, PageHeader, ProcessTimeline, SectionHeading, ServiceCard } from "@/components";
 
 const services = [
   {

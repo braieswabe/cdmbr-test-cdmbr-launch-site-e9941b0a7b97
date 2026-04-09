@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Filter, Search, Tag } from "lucide-react";
-import { BlogCard, Breadcrumbs, NewsletterSignup, PageHeader, SectionHeading } from "@/components";
+import { BlogCard, Breadcrumbs, NewsletterSignup, SectionHeading } from "@/components";
 
 export const metadata: Metadata = {
   title: "Blog | Professional Website",
